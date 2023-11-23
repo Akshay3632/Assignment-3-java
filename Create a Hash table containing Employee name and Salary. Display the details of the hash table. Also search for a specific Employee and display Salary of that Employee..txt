@@ -1,0 +1,42 @@
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class EmployeeHashTableExample {
+    public static void main(String[] args) {
+        // Create a Hashtable to store Employee name and Salary
+        Hashtable<String, Double> employeeSalaryTable = new Hashtable<>();
+
+        // Populate the Hashtable with some data (you can modify this part)
+        employeeSalaryTable.put("John", 50000.0);
+        employeeSalaryTable.put("Alice", 60000.0);
+        employeeSalaryTable.put("Bob", 55000.0);
+
+        // Display the details of the Hashtable
+        System.out.println("Employee Details:");
+        System.out.println(employeeSalaryTable);
+
+        // Search for a specific Employee and display their Salary
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the name of the Employee to search:");
+        String employeeName = scanner.nextLine();
+
+        if (employeeSalaryTable.containsKey(employeeName)) {
+            double salary = employeeSalaryTable.get(employeeName);
+            System.out.println("Salary of " + employeeName + ": " + salary);
+        } else {
+            System.out.println("Employee not found in the table.");
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
+
+
+output:-
+
+Employee Details:
+{Bob=55000.0, Alice=60000.0, John=50000.0}
+Enter the name of the Employee to search:
+Alice
+Salary of Alice: 60000.0

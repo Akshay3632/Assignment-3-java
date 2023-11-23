@@ -1,0 +1,101 @@
+import java.util.Scanner;
+
+class InvalidNameException extends Exception {
+    public InvalidNameException(String message) {
+        super(message);
+    }
+}
+
+public class DoctorNameValidator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.println("Enter the doctor's name:");
+            String doctorName = scanner.nextLine();
+
+            validateDoctorName(doctorName);
+
+            System.out.println("Doctor's name is valid: " + doctorName);
+        } catch (InvalidNameException e) {
+            System.out.println("Exception: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
+    }
+
+    private static void validateDoctorName(String name) throws InvalidNameException {
+        // Check if the name contains digits or special symbols
+        if (name.matches(".*\\d.*") || !name.matches("[a-zA-Z\\s]+")) {
+            throw new InvalidNameException("Name is invalid. It should not contain digits or special symbols.");
+        }
+    }import java.util.Scanner;
+
+class InvalidNameException extends Exception {
+    public InvalidNameException(String message) {
+        super(message);
+    }
+}
+
+public class DoctorNameValidator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.println("Enter the doctor's name:");
+            String doctorName = scanner.nextLine();
+
+            validateDoctorName(doctorName);
+
+            System.out.println("Doctor's name is valid: " + doctorName);
+        } catch (InvalidNameException e) {
+            System.out.println("Exception: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
+    }
+
+    private static void validateDoctorName(String name) throws InvalidNameException {
+        // Check if the name contains digits or special symbols
+        if (name.matches(".*\\d.*") || !name.matches("[a-zA-Z\\s]+")) {
+            throw new InvalidNameException("Name is invalid. It should not contain digits or special symbols.");
+        }
+    }
+}
+
+
+output:-
+
+
+import java.util.Scanner;
+
+class InvalidNameException extends Exception {
+    public InvalidNameException(String message) {
+        super(message);
+    }
+}
+
+public class DoctorNameValidator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.println("Enter the doctor's name:");
+            String doctorName = scanner.nextLine();
+
+            validateDoctorName(doctorName);
+
+            System.out.println("Doctor's name is valid: " + doctorName);
+        } catch (InvalidNameException e) {
+            System.out.println("Exception: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
+    }
+
+    private static void validateDoctorName(String name) throws InvalidNameException {
+        // Check if the name contains digits or special symbols
+        if (name.matches(".*\\d.*") || !name.matches("[a-zA-Z\\s]+")) {
+            throw new InvalidNameException("Name is invalid. It should not contain digits or special symbols.");
+        }
+    }

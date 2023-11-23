@@ -1,0 +1,61 @@
+import java.util.LinkedList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
+public class ColorLinkedList {
+    public static void main(String[] args) {
+        // 1. Construct a linked list containing names of colors
+        List<String> colorList = new LinkedList<>();
+        colorList.add("red");
+        colorList.add("blue");
+        colorList.add("yellow");
+        colorList.add("orange");
+
+        // 2. Display the contents of the List using an Iterator
+        System.out.println("Contents of the list using Iterator:");
+        Iterator<String> iterator = colorList.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
+        // 3. Display the contents of the List in reverse order using a ListIterator
+        System.out.println("\nContents of the list in reverse order using ListIterator:");
+        ListIterator<String> listIterator = colorList.listIterator(colorList.size());
+        while (listIterator.hasPrevious()) {
+            System.out.println(listIterator.previous());
+        }
+
+        // 4. Create another list containing pink and green. Insert elements between blue and yellow.
+        List<String> additionalColors = new LinkedList<>();
+        additionalColors.add("pink");
+        additionalColors.add("green");
+
+        int indexOfBlue = colorList.indexOf("blue");
+        int indexOfYellow = colorList.indexOf("yellow");
+
+        // Insert elements between blue and yellow
+        colorList.addAll(indexOfBlue + 1, additionalColors);
+
+        // Display the modified list
+        System.out.println("\nModified list after inserting pink and green:");
+        System.out.println(colorList);
+    }
+}
+
+output:-
+
+Contents of the list using Iterator:
+red
+blue
+yellow
+orange
+
+Contents of the list in reverse order using ListIterator:
+orange
+yellow
+blue
+red
+
+Modified list after inserting pink and green:
+[red, blue, pink, green, yellow, orange]

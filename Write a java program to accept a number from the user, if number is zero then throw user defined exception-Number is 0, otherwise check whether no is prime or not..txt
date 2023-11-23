@@ -1,0 +1,43 @@
+class ZeroException extends Exception {
+    public ZeroException(String message) {
+        super(message);
+    }
+}
+
+public class PrimeNumberChecker {
+    public static void main(String[] args) {
+        try {
+            int number = 5; // You can replace this with any desired number
+
+            if (number == 0) {
+                throw new ZeroException("Number is 0");
+            }
+
+            if (isPrime(number)) {
+                System.out.println(number + " is a prime number.");
+            } else {
+                System.out.println(number + " is not a prime number.");
+            }
+        } catch (ZeroException e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+    }
+
+    private static boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+output:-
+
+5 is a prime number.

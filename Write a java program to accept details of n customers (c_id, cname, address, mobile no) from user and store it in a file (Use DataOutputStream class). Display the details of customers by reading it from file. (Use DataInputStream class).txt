@@ -1,0 +1,78 @@
+//Write a java program to accept details of n customers (c_id, cname, address, mobile no) from user and store it in a file (Use DataOutputStream class). Display the details of customers by reading it from file. (Use DataInputStream class) 
+
+
+
+
+import java.io.*;
+
+public class CustomerDetails {
+    public static void main(String[] args) {
+        int n = 2; // You can change this to the desired number of customers
+
+        // Accept details of n customers from the user and store in a file
+        try (DataOutputStream dataOutputStream = new DataOutputStream(new FileOutputStream("customerDetails.dat"))) {
+            for (int i = 1; i <= n; i++) {
+                System.out.println("Enter details for Customer " + i + ":");
+                dataOutputStream.writeInt(i); // Customer ID
+                dataOutputStream.writeUTF(getUserInput("Name"));
+                dataOutputStream.writeUTF(getUserInput("Address"));
+                dataOutputStream.writeUTF(getUserInput("Mobile Number"));
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing to the file: " + e.getMessage());
+        }
+
+        // Display the details of customers by reading from the file
+        try (DataInputStream dataInputStream = new DataInputStream(new FileInputStream("customerDetails.dat"))) {
+            System.out.println("\nDetails of Customers:");
+            while (dataInputStream.available() > 0) {
+                int c_id = dataInputStream.readInt();
+                String cname = dataInputStream.readUTF();
+                String address = dataInputStream.readUTF();
+                String mobile = dataInputStream.readUTF();
+
+                System.out.println("Customer ID: " + c_id);
+                System.out.println("Name: " + cname);
+                System.out.println("Address: " + address);
+                System.out.println("Mobile Number: " + mobile);
+                System.out.println();
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading from the file: " + e.getMessage());
+        }
+    }
+
+    private static String getUserInput(String prompt) {
+        System.out.print(prompt + ": ");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            return reader.readLine();
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading user input: " + e.getMessage());
+            return "";
+        }
+    }
+}
+
+
+output:-
+
+Enter details for Customer 1:
+Name: John Doe
+Address: 123 Main Street
+Mobile Number: 123-456-7890
+Enter details for Customer 2:
+Name: Alice Smith
+Address: 456 Oak Avenue
+Mobile Number: 987-654-3210
+
+Details of Customers:
+Customer ID: 1
+Name: John Doe
+Address: 123 Main Street
+Mobile Number: 123-456-7890
+
+Customer ID: 2
+Name: Alice Smith
+Address: 456 Oak Avenue
+Mobile Number: 987-654-3210

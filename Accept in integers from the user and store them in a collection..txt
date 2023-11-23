@@ -1,0 +1,51 @@
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class IntegerCollectionExample {
+    public static void main(String[] args) {
+        // Create a TreeSet to store integers
+        Set<Integer> integerSet = new TreeSet<>();
+
+        // Accept integers from the user
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter integers (enter a non-integer to stop):");
+        
+        while (scanner.hasNextInt()) {
+            int num = scanner.nextInt();
+            integerSet.add(num);
+        }
+
+        // Display integers in sorted order
+        System.out.println("Integers in sorted order: " + integerSet);
+
+        // Search for a particular element using a predefined method
+        System.out.println("Enter an integer to search:");
+        int searchElement = scanner.nextInt();
+        if (integerSet.contains(searchElement)) {
+            System.out.println(searchElement + " found in the collection.");
+        } else {
+            System.out.println(searchElement + " not found in the collection.");
+        }
+Enter integers (enter a non-integer to stop):
+5
+2
+8
+3
+7
+2
+4
+a   // Entering a non-integer to stop input
+
+Integers in sorted order: [2, 3, 4, 5, 7, 8]
+Enter an integer to search:
+4
+4 found in the collection.
+        // Close the scanner
+        scanner.close();
+    }
+}
+
+output:-p
+
+
